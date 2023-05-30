@@ -4,6 +4,8 @@ Team members: Amila Abdulović, Anđela Jeftović
 
 
 #Project 2
+
+
 Understanding mmap and munmap System Calls:
 The mmap and munmap system calls are used for memory mapping in Linux-based operating systems.
 mmap: This system call is used to map files or devices into memory, as well as to create anonymous memory mappings. It allows you to request a range of memory from the operating system, which can be used for various purposes like reading/writing files, sharing memory between processes, or creating shared memory regions. The mmap system call takes several arguments, including the desired address range, size, protection flags, file descriptor, offset, and more.
