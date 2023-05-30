@@ -1,6 +1,8 @@
 # OpeartingSystems2023
 
 Team members: Amila Abdulović, Anđela Jeftović
+
+
 #Project 2
 Understanding mmap and munmap System Calls:
 The mmap and munmap system calls are used for memory mapping in Linux-based operating systems.
