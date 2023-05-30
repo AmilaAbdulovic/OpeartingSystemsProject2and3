@@ -38,7 +38,7 @@ void *childThread(void *arg) {
         if(terminate)
             break;
         getToyFromBox();
-        // Simulate playing
+        
         sleep(1);
     }
     return NULL;
@@ -49,7 +49,7 @@ void *motherThread(void *arg) {
         if(terminate)
             break;
         refillToyBox();
-        // Simulate time taken to refill
+        
         sleep(2);
     }
     return NULL;
@@ -57,13 +57,11 @@ void *motherThread(void *arg) {
 
 int main() {
     pthread_t child, mother;
-
-    // Initialize mutex and condition variables
+    
     pthread_mutex_init(&mutex, NULL);
     pthread_cond_init(&fullBox, NULL);
     pthread_cond_init(&emptyBox, NULL);
 
-    // Create child and mother threads
     pthread_create(&child, NULL, childThread, NULL);
     pthread_create(&mother, NULL, motherThread, NULL);
 
@@ -71,11 +69,9 @@ int main() {
     getchar();
     terminate=1;
 
-    // Wait for threads to finish (this won't happen in this example as the threads run indefinitely)
     pthread_join(child, NULL);
     pthread_join(mother, NULL);
 
-    // Cleanup
     pthread_mutex_destroy(&mutex);
     pthread_cond_destroy(&fullBox);
     pthread_cond_destroy(&emptyBox);
