@@ -20,17 +20,14 @@ void print_memory_usage() {
 
 int main() {
     printf("Running program...\n");
-
-    // Print initial memory usage
     print_memory_usage();
 
-    // Pause the program for a while
     sleep(10);
 
-    // Print memory usage after sleeping
+    
     print_memory_usage();
 
-    // Map an empty page from the OS
+   
     size_t page_size = getpagesize();
     void* mapped_page = mmap(NULL, page_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
@@ -41,13 +38,13 @@ int main() {
 
     printf("Mapped an empty page from the OS.\n");
 
-    // Pause the program again
+    
     sleep(10);
 
-    // Print memory usage after mapping a page
+    
     print_memory_usage();
 
-    // Write some data into the memory mapped page
+    
     char* data = (char*)mapped_page;
     data[0] = 'H';
     data[1] = 'i';
@@ -55,13 +52,11 @@ int main() {
 
     printf("Wrote data into the memory mapped page.\n");
 
-    // Pause the program once more
     sleep(10);
-
-    // Print memory usage after writing data
+    
     print_memory_usage();
 
-    // Unmap the memory page
+  
     if (munmap(mapped_page, page_size) == -1) {
         perror("munmap failed");
         return 1;
@@ -69,10 +64,9 @@ int main() {
 
     printf("Unmapped the memory page.\n");
 
-    // Pause the program for the last time
+ 
     sleep(10);
 
-    // Print final memory usage
     print_memory_usage();
 
     return 0;
